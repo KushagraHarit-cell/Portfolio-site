@@ -3,42 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kushagra Harit | Premium Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>Kushagra Harit - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-        :root {         
-               --primary:#8a7bf7;             
-               --primary-light:#a499f9;             
-               --dark: #f7f7fc;              
-               --dark-medium:#eeedfa;             
-               --dark-light:#e1dff8;             
-               --light:#333340;                         
-               --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);        
-} 
+        :root {
+            --primary: #8A7BF7;
+            --primary-light: #A89EFA;
+            --dark: #292929;
+            --dark-medium: #1E1E1E;
+            --dark-light: #3A3A3A;
+            --light: #F7F7FC;
+            --transition: all 0.3s ease;
+
+            /* Light mode (default) variables */
+            --bg-color: var(--light);
+            --text-color: var(--dark);
+            --card-bg: white;
+            --card-text: var(--dark);
+            --navbar-bg: rgba(247, 247, 252, 0.95);
+            --form-bg: var(--light);
+            --form-border: #e0e0e0;
+        }
+
+        /* Dark mode variables */
+        [data-theme="dark"] {
+            --bg-color: var(--dark);
+            --text-color: var(--light);
+            --card-bg: var(--dark-light);
+            --card-text: var(--light);
+            --navbar-bg: rgba(30, 30, 30, 0.95);
+            --form-bg: var(--dark-medium);
+            --form-border: var(--dark-light);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
 
         body {
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            transition: var(--transition);
         }
 
         .container {
@@ -106,11 +126,36 @@
             font-weight: 500;
         }
 
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2000;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(138, 123, 247, 0.3);
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(138, 123, 247, 0.4);
+        }
+
         /* Navigation */
         .navbar {
-            background-color: rgba(247, 247, 252, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--navbar-bg);
             display: flex;
+            backdrop-filter: blur(10px);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -143,7 +188,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--light);
+            color: var(--text-color);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -174,7 +219,7 @@
         }
 
         .nav-link {
-            color: var(--light);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 500;
             text-transform: uppercase;
@@ -208,6 +253,7 @@
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
+            color: var(--text-color);
         }
 
         /* Loader */
@@ -267,9 +313,8 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background-color: var(--dark);
+            background-color: var(--bg-color);
             padding-top: 80px;
-            background-color: var(--dark);
             overflow: hidden;
         }
 
@@ -334,7 +379,7 @@
         /* Profile Section */
         .profile-section {
             padding: 120px 0;
-            background-color: var(--dark-medium);
+            background-color: var(--bg-color);
         }
 
         .profile-content {
@@ -352,7 +397,7 @@
             height: 500px;
             position: relative;
             overflow: hidden;
-            border: 5px solid white;
+            border: 5px solid var(--card-bg);
             box-shadow: 0 20px 40px rgba(138, 123, 247, 0.15);
         }
 
@@ -415,7 +460,7 @@
         /* Skills Section */
         .skills-section {
             padding: 120px 0;
-            background-color: var(--dark);
+            background-color: var(--bg-color);
         }
 
         .section-header {
@@ -437,13 +482,14 @@
         }
 
         .skill-card {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 40px 30px;
             border-radius: 8px;
             transition: var(--transition);
             box-shadow: 0 10px 30px rgba(138, 123, 247, 0.08);
             position: relative;
             overflow: hidden;
+            color: var(--card-text);
         }
 
         .skill-card::before {
@@ -504,7 +550,7 @@
         /* Portfolio Section */
         .portfolio-section {
             padding: 120px 0;
-            background-color: var(--dark-medium);
+            background-color: var(--bg-color);
         }
 
         .portfolio-filters {
@@ -517,7 +563,7 @@
         .filter-btn {
             background: none;
             border: none;
-            color: var(--light);
+            color: var(--text-color);
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
@@ -576,13 +622,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(247, 247, 252, 0.95), rgba(247, 247, 252, 0.75));
+            background: linear-gradient(to top, rgba(30, 30, 30, 0.95), rgba(30, 30, 30, 0.75));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 30px;
             opacity: 0;
             transition: var(--transition);
+        }
+
+        [data-theme="light"] .portfolio-overlay {
+            background: linear-gradient(to top, rgba(247, 247, 252, 0.95), rgba(247, 247, 252, 0.75));
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -604,13 +654,14 @@
         .portfolio-title {
             font-size: 1.6rem;
             margin-bottom: 10px;
-            color: var(--light);
+            color: var(--text-color);
         }
 
         .portfolio-description {
             font-size: 0.9rem;
             opacity: 0.8;
             margin-bottom: 15px;
+            color: var(--text-color);
         }
 
         .portfolio-link {
@@ -637,7 +688,7 @@
         /* Testimonial Section */
         .testimonial-section {
             padding: 120px 0;
-            background-color: var(--dark);
+            background-color: var(--bg-color);
         }
 
         .testimonial-container {
@@ -653,7 +704,7 @@
         .testimonial-item {
             text-align: center;
             padding: 40px;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(138, 123, 247, 0.08);
             opacity: 0;
@@ -664,6 +715,7 @@
             transform: translateY(20px);
             transition: all 0.5s ease;
             visibility: hidden;
+            color: var(--card-text);
         }
 
         .testimonial-item.active {
@@ -716,7 +768,7 @@
         /* Contact Section */
         .contact-section {
             padding: 120px 0;
-            background-color: var(--dark-medium);
+            background-color: var(--bg-color);
         }
 
         .contact-container {
@@ -749,7 +801,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: white;
+            background-color: var(--card-bg);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -761,7 +813,7 @@
         .contact-details h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
-            color: var(--light);
+            color: var(--text-color);
         }
 
         .contact-details p {
@@ -772,7 +824,7 @@
 
         .contact-form {
             flex: 1.2;
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 15px 40px rgba(138, 123, 247, 0.1);
@@ -787,16 +839,16 @@
             font-size: 0.9rem;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--light);
+            color: var(--card-text);
         }
 
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            background-color: var(--dark);
-            border: 1px solid var(--dark-light);
+            background-color: var(--form-bg);
+            border: 1px solid var(--form-border);
             border-radius: 4px;
-            color: var(--light);
+            color: var(--text-color);
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
@@ -835,7 +887,7 @@
 
         /* Footer */
         .footer {
-            background-color: var(--dark);
+            background-color: var(--bg-color);
             padding: 80px 0 30px;
         }
 
@@ -854,7 +906,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--light);
+            color: var(--text-color);
             text-decoration: none;
             margin-bottom: 20px;
             display: inline-block;
@@ -874,7 +926,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: white;
+            background-color: var(--card-bg);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -898,7 +950,7 @@
         .footer-nav h3 {
             font-size: 1.3rem;
             margin-bottom: 25px;
-            color: var(--light);
+            color: var(--text-color);
         }
 
         .footer-links {
@@ -910,7 +962,7 @@
         }
 
         .footer-links a {
-            color: var(--light);
+            color: var(--text-color);
             text-decoration: none;
             opacity: 0.7;
             transition: var(--transition);
@@ -1016,19 +1068,20 @@
             }
         }
         @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-description {
-    font-size: 1rem;
-  }
-  
-  .hero-cta {
-    flex-direction: column;
-    gap: 10px;
-    max-width: 200px;
-  }}
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 10px;
+                max-width: 200px;
+            }
+        }
 
         @media (max-width: 768px) {
             .nav-container {
@@ -1041,7 +1094,7 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background-color: white;
+                background-color: var(--card-bg);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -1121,6 +1174,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Page Loader -->
     <div class="loader" id="loader">
@@ -1130,6 +1184,11 @@
                 <div class="loader-progress" id="loaderProgress"></div>
             </div>
         </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
     </div>
 
     <!-- Navigation -->
@@ -1148,47 +1207,48 @@
         </div>
     </nav>
 
-    <section class="hero" id="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
             <div id="particles-js"></div>
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                <div class="hero-subtitle">Full-Stack Developer</div>
-                <h1>Kushagra Harit</h1>
-                <p class="hero-description">I create <span class="cursive">elegant</span> & <span class="cursive">functional</span> digital experiences that help businesses grow and users thrive.</p>
+            <div class="hero-content">
+                <div class="hero-subtitle">Web Developer & UI/UX Designer</div>
+                <h1>Creating Digital Experiences</h1>
+                <p class="hero-description">I design and develop websites that are beautiful, functional, and provide exceptional user experience.</p>
                 <div class="hero-cta">
-                    <a href="#portfolio" class="btn btn-primary" onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'})">View My Work</a>
-                    <a href="#contact" class="btn btn-outline" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">Get In Touch</a>
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Profile Section -->
     <section class="profile-section" id="about">
         <div class="container">
             <div class="profile-content">
-                <div class="profile-image" data-aos="fade-right" data-aos-duration="1000">
+                <div class="profile-image">
                     <div class="profile-frame">
-                        <img src="KushagraHarit-cell.jpg" alt="Kushagra Harit">
+                        <img src="/api/placeholder/400/500" alt="Kushagra Harit">
                     </div>
                 </div>
-                <div class="profile-details" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="profile-details">
                     <h2>About Me</h2>
-                    <p class="profile-quote">"Creating digital experiences that merge aesthetics with functionality is not just my profession—it's my passion."</p>
-                    <p>Hello, I'm Kushagra Harit, a full-stack developer based in India with over 1 years of experience crafting exceptional digital solutions. My approach combines technical expertise with a deep understanding of user experience design principles.</p>
-                    <p>I specialize in creating responsive websites and web applications using modern technologies like React, Vue.js, Node.js, and Python. What sets me apart is my commitment to clean, efficient code and my ability to translate complex requirements into intuitive user interfaces.</p>
+                    <p class="profile-quote">I believe in creating meaningful digital experiences that connect with people.</p>
+                    <p>I'm a passionate web developer and UI/UX designer with over 5 years of experience. I specialize in creating modern, responsive websites and applications that not only look great but also deliver exceptional user experiences.</p>
+                    <p>My approach combines aesthetic sensibility with technical expertise to build digital solutions that help businesses grow and connect with their audience in meaningful ways.</p>
                     <div class="profile-stats">
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
-                            <div class="stat-number" id="projectCount">47</div>
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">120+</div>
                             <div class="stat-label">Projects Completed</div>
                         </div>
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
-                            <div class="stat-number" id="clientCount">32</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat-item" data-aos="fade-up" data-aos-delay="800">
-                            <div class="stat-number" id="expCount">5</div>
-                            <div class="stat-label">Years Experience</div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
                         </div>
                     </div>
                 </div>
@@ -1199,42 +1259,42 @@
     <!-- Skills Section -->
     <section class="skills-section" id="skills">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header">
                 <h2>My Expertise</h2>
-                <p class="section-subheading">I craft beautiful, functional digital experiences using cutting-edge technologies</p>
+                <p class="section-subheading">I offer a wide range of skills and services to help you achieve your digital goals.</p>
             </div>
             <div class="skills-grid">
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="skill-title">Front-End Development</h3>
-                    <p class="skill-description">Creating responsive, intuitive user interfaces with modern frameworks and pixel-perfect attention to detail.</p>
+                    <h3 class="skill-title">Web Development</h3>
+                    <p class="skill-description">I build responsive, high-performance websites using modern technologies that provide a seamless user experience.</p>
                     <div class="skill-level">
                         <div class="skill-progress" style="width: 95%"></div>
-                        <div class="skill-percent">95%</div>
+                        <span class="skill-percent">95%</span>
                     </div>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-card">
                     <div class="skill-icon">
-                        <i class="fas fa-server"></i>
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="skill-title">Back-End Development</h3>
-                    <p class="skill-description">Building robust server-side applications with efficient data processing and secure architecture.</p>
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p class="skill-description">I create intuitive, visually appealing interfaces that enhance user engagement and satisfaction.</p>
                     <div class="skill-level">
-                        <div class="skill-progress" style="width: 50%"></div>
-                        <div class="skill-percent">50%</div>
+                        <div class="skill-progress" style="width: 90%"></div>
+                        <span class="skill-percent">90%</span>
                     </div>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="skill-title">UI/UX Design</h3>
-                    <p class="skill-description">Designing seamless user experiences that balance aesthetic appeal with functional simplicity.</p>
+                    <h3 class="skill-title">Responsive Design</h3>
+                    <p class="skill-description">I ensure your website looks and functions perfectly on all devices, from mobile phones to desktop computers.</p>
                     <div class="skill-level">
-                        <div class="skill-progress" style="width: 85%"></div>
-                        <div class="skill-percent">85%</div>
+                        <div class="skill-progress" style="width: 92%"></div>
+                        <span class="skill-percent">92%</span>
                     </div>
                 </div>
             </div>
@@ -1244,78 +1304,71 @@
     <!-- Portfolio Section -->
     <section class="portfolio-section" id="portfolio">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header">
                 <h2>Featured Projects</h2>
-                <p class="section-subheading">A curated selection of my most impactful and innovative work</p>
+                <p class="section-subheading">Take a look at some of my recent work that showcases my skills and creativity.</p>
             </div>
-            <div class="portfolio-filters" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="full-stack">Full-Stack</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
                 <button class="filter-btn" data-filter="ui">UI/UX</button>
+                <button class="filter-btn" data-filter="app">Applications</button>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300" data-category="full-stack">
-                    <img src="Screenshot 2025-04-10 222843.png" alt="Hospilinks" class="portfolio-image">
+                <div class="portfolio-item" data-category="web">
+                    <img src="/api/placeholder/400/300" alt="Project 1" class="portfolio-image">
                     <div class="portfolio-overlay">
-                        <div class="portfolio-category">Full-Stack</div>
-                        <h3 class="portfolio-title">Hospilinks</h3>
-                        <p class="portfolio-description">Today, HospiLink combines cutting-edge technology with compassionate design to create navigation solutions that work for everyone, regardless of age or tech-savviness.</p>
-                        <a href="https://hospi-link--alpha.vercel.app/" class="portfolio-link">
-                            <i class="fas fa-link"></i>
-                        </a>
+                        <div class="portfolio-category">Web Design</div>
+                        <h3 class="portfolio-title">E-commerce Website</h3>
+                        <p class="portfolio-description">A modern e-commerce platform with seamless user experience and secure payment integration.</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400" data-category="web">
-                    <img src="Screenshot 2025-04-10 224920.png " alt="LUXECART" class="portfolio-image">
+                <div class="portfolio-item" data-category="ui">
+                    <img src="/api/placeholder/400/300" alt="Project 2" class="portfolio-image">
                     <div class="portfolio-overlay">
-                        <div class="portfolio-category">Web Development</div>
-                        <h3 class="portfolio-title">LUXE<span>CART</span></h3>
-                        <p class="portfolio-description">At LUXECART, we believe that luxury should be accessible, and the online shopping experience should be as refined as the products we offer.</p>
-                        <a href="https://luxe-cart-tau.vercel.app/" class="portfolio-link">
-                            <i class="fas fa-link"></i>
-                        </a>
+                        <div class="portfolio-category">UI/UX Design</div>
+                        <h3 class="portfolio-title">Travel App Interface</h3>
+                        <p class="portfolio-description">An intuitive mobile app interface designed for travel enthusiasts to discover new destinations.</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
-                <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500" data-category="ui">
-                    <img src="Screenshot 2025-02-21 190452.png" alt="GROUNZ" class="portfolio-image">
+                <div class="portfolio-item" data-category="app">
+                    <img src="/api/placeholder/400/300" alt="Project 3" class="portfolio-image">
                     <div class="portfolio-overlay">
-                        <div class="portfolio-category">UI/UX</div>
-                        <h3 class="portfolio-title">GROUNZ</h3>
-                        <p class="portfolio-description">I have designed a user-friendly platform where anyone can browse, preview, and download high-quality wallpapers with ease.</p>
-                        <a href="https://grounz.netlify.app/" class="portfolio-link">
-                            <i class="fas fa-link"></i>
-                        </a>
+                        <div class="portfolio-category">Application</div>
+                        <h3 class="portfolio-title">Task Management Tool</h3>
+                        <p class="portfolio-description">A productivity application that helps teams collaborate effectively and manage tasks.</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonial Section -->
     <section class="testimonial-section" id="testimonials">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header">
                 <h2>Client Testimonials</h2>
-                <p class="section-subheading">What clients say about working with me</p>
+                <p class="section-subheading">Here's what some of my clients have to say about working with me.</p>
             </div>
-            <div class="testimonial-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="testimonial-slider" id="testimonialSlider">
+            <div class="testimonial-container">
+                <div class="testimonial-slider">
                     <div class="testimonial-item active">
-                        <p class="testimonial-text">"Kushagra transformed our outdated website into a modern, user-friendly platform that perfectly represents our brand. His attention to detail and technical expertise exceeded our expectations."</p>
+                        <p class="testimonial-text">"Working with Kushagra was an absolute pleasure. His attention to detail and creative vision transformed our website into exactly what we needed. Highly recommended!"</p>
                         <div class="testimonial-author">Sarah Johnson</div>
-                        <div class="testimonial-position">CEO, Innovate Design</div>
+                        <div class="testimonial-position">CEO, TechStart</div>
                     </div>
                     <div class="testimonial-item">
-                        <p class="testimonial-text">"Working with Kushagra was a game-changer for our e-commerce business. He created a seamless shopping experience that increased our conversion rates by 40%. I highly recommend his services."</p>
-                        <div class="testimonial-author">Michael Chen</div>
-                        <div class="testimonial-position">Founder, EcoShop</div>
+                        <p class="testimonial-text">"Kushagra delivered beyond our expectations. Not only is his work visually stunning, but he also created a user experience that significantly improved our conversion rates."</p>
+                        <div class="testimonial-author">Michael Brown</div>
+                        <div class="testimonial-position">Marketing Director, Innovate Inc.</div>
                     </div>
                     <div class="testimonial-item">
-                        <p class="testimonial-text">"Kushagra's ability to translate complex technical requirements into elegant solutions is remarkable. He delivered our project on time and on budget, and was a pleasure to work with throughout the process."</p>
-                        <div class="testimonial-author">Emma Williams</div>
-                        <div class="testimonial-position">CTO, TechStart</div>
+                        <p class="testimonial-text">"I've worked with many developers, but Kushagra stands out for his technical expertise and excellent communication. He made the complex process of website redesign feel easy and stress-free."</p>
+                        <div class="testimonial-author">Emily Chen</div>
+                        <div class="testimonial-position">Founder, ArtistryWeb</div>
                     </div>
                 </div>
                 <div class="testimonial-nav">
@@ -1330,21 +1383,21 @@
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header">
                 <h2>Get In Touch</h2>
-                <p class="section-subheading">Interested in working together? Let's discuss your project</p>
+                <p class="section-subheading">Interested in working together? Feel free to reach out to me for collaborations or just to say hello!</p>
             </div>
             <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
-                    <h3 class="contact-heading">Let's create something amazing together</h3>
-                    <p class="contact-text">Whether you need a new website, a custom Web Developer, or expertise on an existing project, I'm here to help turn your vision into reality.</p>
+                <div class="contact-info">
+                    <h3 class="contact-heading">Let's Talk</h3>
+                    <p class="contact-text">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
                     <div class="contact-method">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
                             <h4>Location</h4>
-                            <p>New Delhi, India</p>
+                            <p>San Francisco, California</p>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -1353,7 +1406,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>kushagraharit123@gmail.com</p>
+                            <p>hello@kushagra.design</p>
                         </div>
                     </div>
                     <div class="contact-method">
@@ -1362,11 +1415,11 @@
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <p>+91 8851593611</p>
+                            <p>+1 (555) 123-4567</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
+                <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -1396,22 +1449,23 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <a href="#" class="footer-logo"> Kushagra Harit</a>
-                    <p class="footer-text">Creating beautiful, functional digital experiences that help businesses grow and users thrive.</p>
+                    <a href="#" class="footer-logo">Kushagra Harit</a>
+                    <p class="footer-text">I design and develop websites that are beautiful, functional, and provide exceptional user experience. Let's collaborate to bring your vision to life.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-nav">
-                    <h3>Quick Links</h3>
+                    <h3>Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#skills">My Expertise</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Expertise</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1420,15 +1474,14 @@
                     <ul class="footer-links">
                         <li><a href="#">Web Development</a></li>
                         <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Mobile Applications</a></li>
+                        <li><a href="#">Responsive Design</a></li>
+                        <li><a href="#">Web Applications</a></li>
                         <li><a href="#">E-commerce Solutions</a></li>
-                        <li><a href="#">Technical Consulting</a></li>
                     </ul>
                 </div>
-                <!-- Closing the footer content and container divs -->
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Kushagra Harit. All rights reserved.</p>
+                &copy; 2025 Kushagra Harit. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -1438,64 +1491,95 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- JavaScript Code -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize AOS animation library
+        // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            AOS.init();
-            
-            // Loader animation
+            // Page Loader
             const loader = document.getElementById('loader');
             const loaderProgress = document.getElementById('loaderProgress');
-            
             let progress = 0;
             const interval = setInterval(function() {
-                progress += 1;
+                progress += 5;
                 loaderProgress.style.width = progress + '%';
-                
                 if (progress >= 100) {
                     clearInterval(interval);
                     setTimeout(function() {
-                        loader.style.opacity = '0';
-                        setTimeout(function() {
-                            loader.style.display = 'none';
-                        }, 500);
+                        loader.classList.add('hidden');
                     }, 500);
                 }
-            }, 20);
+            }, 50);
             
-            // Mobile navigation toggle
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
+            // Dark Mode Toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const icon = darkModeToggle.querySelector('i');
             
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                this.classList.toggle('active');
+            // Check for saved user preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                body.setAttribute('data-theme', 'light');
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('click', function() {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.setAttribute('data-theme', 'light');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                }
             });
             
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        navLinks.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    }
+            // Navigation bar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                // Toggle menu icon
+                const menuIcon = menuToggle.querySelector('i');
+                if (menuIcon.classList.contains('fa-bars')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            const navLinksItems = document.querySelectorAll('.nav-link');
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    const menuIcon = menuToggle.querySelector('i');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
                 });
             });
             
-            // Portfolio filter functionality
+            // Portfolio Filter
             const filterButtons = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             
@@ -1503,96 +1587,67 @@
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
                     // Add active class to clicked button
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Show/hide portfolio items based on filter
                     portfolioItems.forEach(item => {
-                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        const category = item.getAttribute('data-category');
+                        if (filter === 'all' || filter === category) {
                             item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'scale(1)';
-                            }, 100);
                         } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'scale(0.8)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
+                            item.style.display = 'none';
                         }
                     });
                 });
             });
             
-            // Testimonial slider
-            const testimonialDots = document.querySelectorAll('.testimonial-dot');
+            // Testimonial Slider
             const testimonialItems = document.querySelectorAll('.testimonial-item');
+            const testimonialDots = document.querySelectorAll('.testimonial-dot');
             
             testimonialDots.forEach(dot => {
                 dot.addEventListener('click', function() {
                     const index = this.getAttribute('data-index');
                     
-                    // Remove active class from all dots and testimonials
-                    testimonialDots.forEach(d => d.classList.remove('active'));
+                    // Hide all testimonials
                     testimonialItems.forEach(item => item.classList.remove('active'));
-                    
-                    // Add active class to clicked dot and corresponding testimonial
-                    this.classList.add('active');
+                    // Show selected testimonial
                     testimonialItems[index].classList.add('active');
+                    
+                    // Update dots
+                    testimonialDots.forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
             
-            // Auto-rotate testimonials
+            // Auto rotate testimonials
             let currentTestimonial = 0;
-            
-            setInterval(() => {
+            const autoRotate = setInterval(function() {
                 currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
                 
-                testimonialDots.forEach(d => d.classList.remove('active'));
+                // Hide all testimonials
                 testimonialItems.forEach(item => item.classList.remove('active'));
-                
-                testimonialDots[currentTestimonial].classList.add('active');
+                // Show next testimonial
                 testimonialItems[currentTestimonial].classList.add('active');
+                
+                // Update dots
+                testimonialDots.forEach(d => d.classList.remove('active'));
+                testimonialDots[currentTestimonial].classList.add('active');
             }, 5000);
             
-            // Contact form submission
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
-                
-                // Here you would normally send the form data to a server
-                console.log(`Form submitted: ${name}, ${email}, ${subject}, ${message}`);
-                
-                // Show success message
-                alert('Thank you for your message! I will get back to you soon.');
-                
-                // Reset form
-                contactForm.reset();
-            });
-            
-            // Back to top button
-            const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('visible');
+            // Back to Top Button
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
                 } else {
-                    backToTopButton.classList.remove('visible');
+                    backToTopBtn.classList.remove('visible');
                 }
             });
             
-            backToTopButton.addEventListener('click', function(e) {
+            backToTopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 window.scrollTo({
                     top: 0,
@@ -1600,65 +1655,16 @@
                 });
             });
             
-            // Animate stats counters
-            const observerOptions = {
-                threshold: 0.5
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
+            // Form Submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Form submission logic would go here
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
                 });
-            }, observerOptions);
-            
-            const statsSection = document.querySelector('.profile-stats');
-            if (statsSection) {
-                observer.observe(statsSection);
             }
-            
-            function animateCounters() {
-                const projectCount = document.getElementById('projectCount');
-                const clientCount = document.getElementById('clientCount');
-                const expCount = document.getElementById('expCount');
-                
-                const counters = [
-                    { element: projectCount, target: 47, increment: 1, current: 0 },
-                    { element: clientCount, target: 32, increment: 1, current: 0 },
-                    { element: expCount, target: 5, increment: 1, current: 0 }
-                ];
-                
-                const interval = setInterval(() => {
-                    let completed = 0;
-                    
-                    counters.forEach(counter => {
-                        if (counter.current < counter.target) {
-                            counter.current += counter.increment;
-                            counter.element.textContent = counter.current;
-                        } else {
-                            completed++;
-                        }
-                    });
-                    
-                    if (completed === counters.length) {
-                        clearInterval(interval);
-                    }
-                }, 80);
-            }
-            
-            // Sticky navigation
-            const navbar = document.getElementById('navbar');
-            const navbarHeight = navbar.offsetHeight;
-            
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > navbarHeight) {
-                    navbar.classList.add('sticky');
-                } else {
-                    navbar.classList.remove('sticky');
-                }
-            });
         });
         particlesJS('particles-js', {
   "particles": {
@@ -1772,7 +1778,7 @@
     "size": "cover"
   }
 });
+        
     </script>
-    
 </body>
 </html>
