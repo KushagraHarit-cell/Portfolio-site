@@ -9,16 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-        :root {
-    --primary: #7c5295;           /* Rich purple - elegant primary color */
-    --primary-light: #a37fb8;     /* Lighter purple for accents */
-    --dark: #0d0d0d;              /* Deep black */
-    --dark-medium: #121212;       /* Off-black */
-    --dark-light: #202020;        /* Charcoal */
-    --light: #f8f8f8;             /* Off-white */
-    --grey: #808080;              /* Neutral grey */
-    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+        :root {         
+               --primary:#8a7bf7;             
+               --primary-light:#a499f9;             
+               --dark: #f7f7fc;              
+               --dark-medium:#eeedfa;             
+               --dark-light:#e1dff8;             
+               --light:#333340;                         
+               --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);        
+} 
         * {
             margin: 0;
             padding: 0;
@@ -58,7 +57,7 @@
         h1 {
             font-size: 4.5rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--primary), var(--primary));
+            background: linear-gradient(to right, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -109,7 +108,7 @@
 
         /* Navigation */
         .navbar {
-            background-color: rgba(13, 13, 13, 0.95);
+            background-color: rgba(247, 247, 252, 0.95);
             backdrop-filter: blur(10px);
             padding: 20px 0;
             position: fixed;
@@ -122,12 +121,12 @@
 
         .navbar.scrolled {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(138, 123, 247, 0.1);
         }
 
         .navbar.sticky {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(138, 123, 247, 0.1);
         }
 
         .nav-container {
@@ -247,7 +246,7 @@
         .loader-bar {
             width: 200px;
             height: 2px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(138, 123, 247, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -309,12 +308,14 @@
 
         .btn-primary {
             background-color: var(--primary);
-            color: var(--dark);
+            color: white;
+            box-shadow: 0 4px 10px rgba(138, 123, 247, 0.2);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-light);
             transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(138, 123, 247, 0.3);
         }
 
         .btn-outline {
@@ -324,8 +325,9 @@
 
         .btn-outline:hover {
             background-color: var(--primary);
-            color: var(--dark);
+            color: white;
             transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(138, 123, 247, 0.3);
         }
 
         /* Profile Section */
@@ -349,8 +351,8 @@
             height: 500px;
             position: relative;
             overflow: hidden;
-            border: 5px solid var(--dark-light);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(138, 123, 247, 0.15);
         }
 
         .profile-frame img {
@@ -361,7 +363,7 @@
         }
 
         .profile-frame:hover img {
-            transform: scale(1.9);
+            transform: scale(1.05);
         }
 
         .profile-details {
@@ -434,11 +436,11 @@
         }
 
         .skill-card {
-            background-color: var(--dark-medium);
+            background-color: white;
             padding: 40px 30px;
             border-radius: 8px;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 123, 247, 0.08);
             position: relative;
             overflow: hidden;
         }
@@ -456,6 +458,7 @@
 
         .skill-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(138, 123, 247, 0.15);
         }
 
         .skill-card:hover::before {
@@ -556,6 +559,7 @@
             border-radius: 8px;
             height: 300px;
             transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(138, 123, 247, 0.1);
         }
 
         .portfolio-image {
@@ -571,7 +575,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.958), rgba(0, 0, 0, 0.775));
+            background: linear-gradient(to top, rgba(247, 247, 252, 0.95), rgba(247, 247, 252, 0.75));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -617,13 +621,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--dark);
+            color: white;
             text-decoration: none;
             transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(138, 123, 247, 0.2);
         }
 
         .portfolio-link:hover {
-            background-color: var(--light);
+            background-color: var(--primary-light);
+            box-shadow: 0 6px 15px rgba(138, 123, 247, 0.3);
+            transform: translateY(-3px);
         }
 
         /* Testimonial Section */
@@ -645,9 +652,9 @@
         .testimonial-item {
             text-align: center;
             padding: 40px;
-            background-color: var(--dark-medium);
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(138, 123, 247, 0.08);
             opacity: 0;
             position: absolute;
             top: 0;
@@ -741,12 +748,13 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--dark-light);
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.2rem;
             color: var(--primary);
+            box-shadow: 0 5px 15px rgba(138, 123, 247, 0.15);
         }
 
         .contact-details h4 {
@@ -763,9 +771,10 @@
 
         .contact-form {
             flex: 1.2;
-            background-color: var(--dark-light);
+            background-color: white;
             padding: 40px;
             border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(138, 123, 247, 0.1);
         }
 
         .form-group {
@@ -777,6 +786,7 @@
             font-size: 0.9rem;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--light);
         }
 
         .form-control {
@@ -794,6 +804,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(138, 123, 247, 0.1);
         }
 
         textarea.form-control {
@@ -805,7 +816,7 @@
             width: 100%;
             padding: 14px;
             background-color: var(--primary);
-            color: var(--dark);
+            color: white;
             border: none;
             border-radius: 4px;
             font-weight: 600;
@@ -813,10 +824,12 @@
             letter-spacing: 1px;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(138, 123, 247, 0.2);
         }
 
         .form-btn:hover {
             background-color: var(--primary-light);
+            box-shadow: 0 6px 15px rgba(138, 123, 247, 0.3);
         }
 
         /* Footer */
@@ -860,19 +873,21 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: var(--dark-light);
+            background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--light);
+            color: var(--primary);
             text-decoration: none;
             transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(138, 123, 247, 0.1);
         }
 
         .social-link:hover {
             background-color: var(--primary);
-            color: var(--dark);
+            color: white;
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(138, 123, 247, 0.2);
         }
 
         .footer-nav {
@@ -922,7 +937,7 @@
             height: 50px;
             border-radius: 50%;
             background-color: var(--primary);
-            color: var(--dark);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -931,6 +946,7 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 999;
+            box-shadow: 0 5px 15px rgba(138, 123, 247, 0.3);
         }
 
         .back-to-top.visible {
@@ -941,6 +957,7 @@
         .back-to-top:hover {
             background-color: var(--primary-light);
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(138, 123, 247, 0.4);
         }
 
         /* Media Queries */
@@ -1023,18 +1040,19 @@
                 right: -100%;
                 width: 280px;
                 height: 100vh;
-                background-color: var(--dark-medium);
+                background-color: white;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
                 transition: var(--transition);
                 z-index: 999;
+                box-shadow: -5px 0 30px rgba(138, 123, 247, 0.1);
             }
             
             .nav-links.active {
                 right: 0;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+                box-shadow: -5px 0 30px rgba(138, 123, 247, 0.15);
             }
             
             .menu-toggle {
@@ -1151,7 +1169,7 @@
             <div class="profile-content">
                 <div class="profile-image" data-aos="fade-right" data-aos-duration="1000">
                     <div class="profile-frame">
-                        <img src="KushagraHarit-cell.jpg" alt="Kushagra Harit">
+                        <img src="WhatsApp Image 2025-04-10 at 22.24.09_634a3da9.jpg" alt="Kushagra Harit">
                     </div>
                 </div>
                 <div class="profile-details" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
@@ -1675,136 +1693,119 @@
                 }
             });
         });
-            // Particles.js Configuration
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 90,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#a37fb8"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.3,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 3,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#f8f8f8",
-                        "opacity": 0.6,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 3.9 ,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": true,
-                        "attract": {
-                            "enable": true,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": false,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 2
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
+        particlesJS('particles-js', {
+  "particles": {
+    "number": {
+      "value": 60,             // Slightly reduced for a cleaner look
+      "density": {
+        "enable": true,
+        "value_area": 900      // Increased for better spacing
+      }
+    },
+    "color": {
+      "value": ["#4361ee", "#3f37c9", "#4895ef", "#4cc9f0"]  // Gradient color palette
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0.5,          // Subtle stroke for refinement
+        "color": "#f8f9fa"     // Light color for elegance
+      },
+      "polygon": {
+        "nb_sides": 5
+      }
+    },
+    "opacity": {
+      "value": 0.4,            // More subtle opacity
+      "random": true,          // Random opacity for depth
+      "anim": {
+        "enable": true,        // Enable animation for premium feel
+        "speed": 0.8,          // Slower for sophistication
+        "opacity_min": 0.2,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 2.5,            // Slightly smaller particles
+      "random": true,
+      "anim": {
+        "enable": true,        // Animate size for visual interest
+        "speed": 2,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 180,         // Increased for more spacious connections
+      "color": "#e0e1fe",      // Light pastel color for connections
+      "opacity": 0.5,          // More subtle connections
+      "width": 0.7             // Thinner lines for elegance
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.5,            // Slower movement for sophistication
+      "direction": "none",
+      "random": true,          // Random movement for dynamic feel
+      "straight": false,
+      "out_mode": "bounce",    // Bounce for a contained premium feel
+      "bounce": true,
+      "attract": {
+        "enable": true,        // Enable attraction for organic movement
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "repulse"      // Changed to repulse for a more dramatic effect
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 180,       // Increased interaction distance
+        "line_linked": {
+          "opacity": 0.8       // More visible on interaction
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.8        // Longer repulse effect
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true,
+  "background": {
+    "color": "#fefeff",        // Very subtle off-white background
+    "image": "",
+    "position": "50% 50%",
+    "repeat": "no-repeat",
+    "size": "cover"
+  }
+});
     </script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDHFGkg9XUhX-HLkw7MHz-6F1NgUqq3Bmo",
-          authDomain: "portfolio-a069b.firebaseapp.com",
-          projectId: "portfolio-a069b",
-          storageBucket: "portfolio-a069b.firebasestorage.app",
-          messagingSenderId: "902157714616",
-          appId: "1:902157714616:web:89159cb386cb483f6ca04d",
-          measurementId: "G-QRW1J8KZBL"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
     
 </body>
 </html>
